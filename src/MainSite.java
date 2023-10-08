@@ -7,7 +7,7 @@ public class MainSite {
         System.out.println("Witaj " + loggedUser + " !");
 
         System.out.println();
-        System.out.println("Twój stan konta: " + User.getBalance());
+        System.out.println("Twój stan konta: " + User.users.get(loggedUserIndex).getBalance());
         System.out.println("Wybierz operację jaką chcesz wykonać");
         System.out.println("1 - Zarabiaj");
         System.out.println("2 - Kupuj"); // TODO: Dodać jakieś nagrody do kupienia
@@ -20,6 +20,7 @@ public class MainSite {
 
         switch (fromUser){
             case 1:
+                EarnMoney.earn();
                 break;
             case 2:
                 break;

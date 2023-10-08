@@ -3,20 +3,23 @@ import java.util.ArrayList;
 public class User {
     private final String login;
     private String password;
-    private static double balance;
+    private static int userID = 0;
+    private double balance;
 
     public static ArrayList<User> users = new ArrayList<>();
 
-    User(String login, String password){
+    User(String login, String password, int userID){
         this.login = login;
         this.password = password;
-        balance = 0;
+        this.userID = userID;
+        this.balance = 0;
     }
     public static void createUser(String login, String password){
-        users.add(new User(login, password));
+        users.add(new User(login, password, userID));
+        userID += 1;
     }
 
-    public static double getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -30,5 +33,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setBalance(double balance) {
+        this.balance += balance;
     }
 }
