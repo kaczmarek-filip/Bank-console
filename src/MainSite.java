@@ -4,9 +4,10 @@ public class MainSite {
 
     static Scanner input = new Scanner(System.in);
     public static void main(String loggedUser, int loggedUserIndex) {
-        System.out.println("Witaj " + loggedUser + " !");
+        System.out.println("Witaj " + loggedUser + " !" + loggedUserIndex);
 
         System.out.println();
+//        System.out.println("Twój stan konta: " + User.users.get(loggedUserIndex).getBalance());
         System.out.println("Twój stan konta: " + User.users.get(loggedUserIndex).getBalance());
         System.out.println("Wybierz operację jaką chcesz wykonać");
         System.out.println("1 - Zarabiaj");
@@ -20,7 +21,7 @@ public class MainSite {
 
         switch (fromUser){
             case 1:
-                EarnMoney.earn();
+                EarnMoney.earn(loggedUserIndex);
                 break;
             case 2:
                 break;

@@ -10,7 +10,7 @@ public class EarnMoney {
 
     static Scanner input = new Scanner(System.in);
 
-    public static void earn(){
+    public static void earn(int loggedUserIndex){
 
         randomFirst = getRandom();
         randomSecound = getRandom();
@@ -24,11 +24,11 @@ public class EarnMoney {
 
         if(result == resultFromUser){
             System.out.println("Zyskujesz " + result * 5 + " zł");
-            MainSite.main(SignIn.loggedUser, SignIn.loggedUserIndex);
-            User.users.get(SignIn.loggedUserIndex).setBalance(result*5); //TODO: Obmyślić jak dodawac do konkretnego konta
+            MainSite.main(User.users.get(loggedUserIndex).getLogin(), loggedUserIndex);
+            User.users.get(loggedUserIndex).setBalance(result * 5); //TODO: Obmyślić jak dodawac do konkretnego konta
         } else {
             System.out.println("Błędny wynik");
-            earn();
+            earn(loggedUserIndex);
         }
     }
     static int getRandom(){
